@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <script src="https://kit.fontawesome.com/ab2155e76b.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+ </head>
+
+
+<body>
+    <section id="Map-Section">
+        <div class="container-fluid">
+            <form >
+                <div class="row">
+                    <label for="from"><i class="far fa-dot-circle"></i></label>
+                    <div class="inputDiv" >
+                        <input type="text"  id="from" placeholder="From">
+                    </div>
+                </div>
+                <div class="row">
+                    <label for="to"><i class="fas fa-map-marker-alt"></i></label>
+                    <div  class="inputDiv">
+                        <input type="text"  id="to" placeholder="To">
+                    </div>
+                </div>
+               
+            </form>
+            
+            <button type="submit" id="btn" style="margin: 1rem 4rem; background-color: #5bc0de; border-radius: 5px; padding: .5rem 1.5rem; color: azure;"><i class="fas fa-map-signs"></i></button>
+        </div>
+        <div class="container-fluid">
+            <div id="googleMap">
+
+            </div>
+            <div id="output">
+
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+        
+    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAijn9Xu11hfP_NhjcwDql3COAWVnzQoOU&callback=initMap&libraries=places"
+        async></script>
+        <script src="map.js"></script>
+
+</body>
+
+</html>
