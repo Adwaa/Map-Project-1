@@ -37,9 +37,9 @@ function initMap() {
    geocoder= new google.maps.Geocoder();
 
   //get the current location and display it to the map and get the lat and lng and convert into an address then store into input1
-  infoWindow = new google.maps.InfoWindow();
-  map.controls[google.maps.ControlPosition.TOP_CENTER];
-  window.addEventListener("load", function getLocation() {
+  //infoWindow = new google.maps.InfoWindow();
+  //map.controls[google.maps.ControlPosition.TOP_CENTER];
+  //window.addEventListener("load", function getLocation() {
     // Try HTML5 geolocation.
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
@@ -49,26 +49,10 @@ function initMap() {
             lng: position.coords.longitude,
           };
           getCordinationsToAddress(pos.lat, pos.lng, geocoder, input1)
-     map.setCenter();
-          markers = new google.maps.Marker({
-            position: pos,
-            // content:'YOU ARE HERE',
-            title: 'my location',
-            map: map
-          });
-          infoWindow.setPosition(pos);
-          infoWindow.setContent("Location found.");
-          infoWindow.open(map, markers);
-          map.setCenter(pos);
-
-
-        },
-
-      );
-
-
+    
+       });
     }
-  });
+//});
 
   // display the rote
   const directionsService = new google.maps.DirectionsService();
@@ -148,7 +132,7 @@ function nearbyCafe(){
   var request2 = {
     location:map.getCenter(),
     radius: 8047,
-    types: ['cafe']
+    types: ['cafe'],
   }
   var service = new google.maps.places.PlacesService(map);
 
@@ -165,6 +149,9 @@ function callback(results, status) {
       createMarker(results[i]);
       // tt+=results[i].name+"<br/>";
        console.log(results[i].name);
+       console.log(results[i].types);
+       console.log(results[i].vicinity);
+       console.log(results[i]);
     }
   //  document.getElementById('output').innerHTML=tt;
   }
@@ -175,9 +162,14 @@ function callback(results, status) {
   var marker = new google.maps.Marker({
     map: map,
     position: place.geometry.location,
-    title: place.name
+    title: place.name,
+    content: place.vicinity
   })
+ // infoWindow.open(map, marker, title, content)
   }
+  
+  
+  
 
 function getCordinationsToAddress(lat, lng, geocoder, input1) {
 
